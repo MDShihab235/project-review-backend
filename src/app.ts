@@ -30,3 +30,5 @@ app.use("/api/projects", projectRouter);
 
 app.use(notFound);
 app.use(errorHandler);
+
+export default app;
