@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  STUDENT
+  MENTOR
+  ADMIN
+}
+
+enum ProjectStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model User {
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         Role      @default(STUDENT)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  submissions  Project[] @relation("Submitter")
+  reviews      Project[] @relation("Reviewer")
+}
+
+model Project {
+  id          String        @id @default(cuid())
+  name        String
+  repoUrl     String
+  liveUrl     String
+  description String
+  status      ProjectStatus @default(PENDING)
+  feedback    String?
+  reviewedAt  DateTime?
+
+  // Canonical forms used to prevent duplicate submissions (DB-level guarantee)
+  repoUrlNormalized String @unique
+  liveUrlNormalized String @unique
+
+  submittedById String
+  submittedBy   User    @relation("Submitter", fields: [submittedById], references: [id], onDelete: Cascade)
+  reviewedById  String?
+  reviewedBy    User?   @relation("Reviewer", fields: [reviewedById], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, createdAt])
+  @@index([submittedById, createdAt])
+}
