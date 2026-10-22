@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "types": ["node"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "target": "es2023",
