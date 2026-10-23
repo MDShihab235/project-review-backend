@@ -1,5 +1,5 @@
-import { asyncHandler, ok } from "../../lib/http";
-import * as service from "./project.service";
+import { asyncHandler, ok } from "../../lib/http.js";
+import * as service from "./project.service.js";
 
 export const create = asyncHandler(async (req, res) => {
   ok(res, await service.createProject(req.user!.id, req.body), 201);

@@ -1,8 +1,8 @@
 import { ErrorRequestHandler, RequestHandler } from "express";
-import { Prisma } from "../generated/prisma/client";
+import { Prisma } from "../generated/prisma/client.js";
 import { ZodError } from "zod";
-import { AppError } from "../lib/errors";
-import { isProd } from "../config/env";
+import { AppError } from "../lib/errors.js";
+import { isProd } from "../config/env.js";
 
 export const notFound: RequestHandler = (req, _res, next) =>
   next(new AppError(404, `Route ${req.method} ${req.originalUrl} not found`));

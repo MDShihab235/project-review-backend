@@ -1,8 +1,8 @@
-import { Prisma, ProjectStatus } from "../../generated/prisma/client";
-import { AppError } from "../../lib/errors";
-import { prisma } from "../../lib/prisma";
-import { normalizeUrl } from "../../lib/url";
-import type { ListQuery, ProjectInput, ReviewInput } from "./project.schema";
+import { Prisma, ProjectStatus } from "../../generated/prisma/client.js";
+import { AppError } from "../../lib/errors.js";
+import { prisma } from "../../lib/prisma.js";
+import { normalizeUrl } from "../../lib/url.js";
+import type { ListQuery, ProjectInput, ReviewInput } from "./project.schema.js";
 
 const MAX_PENDING_PER_STUDENT = 5;
 

@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
-import { Role } from "../generated/prisma/client";
-import { AppError } from "../lib/errors";
-import { verifyToken } from "../lib/jwt";
+import { Role } from "../generated/prisma/client.js";
+import { AppError } from "../lib/errors.js";
+import { verifyToken } from "../lib/jwt.js";
 
 export const authenticate: RequestHandler = (req, _res, next) => {
   const header = req.headers.authorization;

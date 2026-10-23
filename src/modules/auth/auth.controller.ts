@@ -1,11 +1,11 @@
 import bcrypt from "bcryptjs";
 import { CookieOptions, Response } from "express";
-import { Role } from "../../generated/prisma/client";
-import { env, isProd } from "../../config/env";
-import { AppError } from "../../lib/errors";
-import { asyncHandler, ok } from "../../lib/http";
-import { signToken } from "../../lib/jwt";
-import { prisma } from "../../lib/prisma";
+import { Role } from "../../generated/prisma/client.js";
+import { env, isProd } from "../../config/env.js";
+import { AppError } from "../../lib/errors.js";
+import { asyncHandler, ok } from "../../lib/http.js";
+import { signToken } from "../../lib/jwt.js";
+import { prisma } from "../../lib/prisma.js";
 
 const COOKIE_MAX_AGE = 7 * 24 * 60 * 60 * 1000;
 const cookieOptions: CookieOptions = {

@@ -1,4 +1,4 @@
-import { ProjectStatus } from "../../generated/prisma/client";
+import { ProjectStatus } from "../../generated/prisma/client.js";
 import z from "zod";
 
 const GIT_HOSTS = ["github.com", "gitlab.com", "bitbucket.org"];

@@ -2,7 +2,7 @@ import {
   PrismaClient,
   ProjectStatus,
   Role,
-} from "../src/generated/prisma/client"; // Adjust path to your generated client
+} from "../src/generated/prisma/client.js"; // Adjust path to your generated client
 import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
 import "dotenv/config";

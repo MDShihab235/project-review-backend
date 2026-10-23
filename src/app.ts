@@ -1,14 +1,14 @@
-import "./types/express";
+import "./types/express.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
-import { env, isProd } from "./config/env";
-import { errorHandler, notFound } from "./middleware/errorHandler";
-import { apiLimiter } from "./middleware/rateLimit";
-import { authRouter } from "./modules/auth/auth.routes";
-import { projectRouter } from "./modules/projects/project.routes";
+import { env, isProd } from "./config/env.js";
+import { errorHandler, notFound } from "./middleware/errorHandler.js";
+import { apiLimiter } from "./middleware/rateLimit.js";
+import { authRouter } from "./modules/auth/auth.routes.js";
+import { projectRouter } from "./modules/projects/project.routes.js";
 
 export const app = express();
 

@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "prisma generate && tsc -p tsconfig.json",
-    "start": "node dist/server.js",
+    "start": "node dist/src/server.js",
     "typecheck": "tsc --noEmit",
     "generate": "prisma generate",
     "migrate": "prisma migrate dev",
@@ -15,9 +18,6 @@
     "pull": "prisma db pull",
     "deploy": "prisma migrate deploy",
     "postinstall": "prisma generate",
-    "seed": "tsx prisma/seed.ts"
-  },
-  "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
